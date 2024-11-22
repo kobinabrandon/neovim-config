@@ -36,8 +36,7 @@ vim.schedule(function()
   require "mappings"
 end)
 
-
-
+-- Initialising Neogit
 local neogit = require("neogit")
 
 neogit.setup {
@@ -350,3 +349,4 @@ neogit.setup {
     },
   },
 }
+
