@@ -16,11 +16,10 @@ return {
   {
     'linux-cultist/venv-selector.nvim',
     dependencies = { 'neovim/nvim-lspconfig', 'nvim-telescope/telescope.nvim', 'mfussenegger/nvim-dap-python' },
-    opts = {"stay_on_this_version" == true},
-    event = 'VeryLazy', -- Optional: needed only if you want to type `:VenvSelect` without a keymapping
+    opts = {stay_on_this_version = true},
     keys = {
       -- Keymap to open VenvSelector to pick a venv.
-      { '<leader>vs', '<cmd>venv<cr>' },
+      { '<leader>vs', '<cmd>VenvSelect<cr>' },
       -- Keymap to retrieve the venv from a cache (the one previously used for the same project directory).
       { '<leader>vc', '<cmd>venv_cache<cr>' },
     }
@@ -39,8 +38,28 @@ return {
     },
     config = true
   },
-  -- Lazy
+
+  {
+    "kkoomen/vim-doge",
+  },
+
+  {
+    "nvzone/timerly",
+    dependencies = {"nvzone/volt"},
+    keys = {
+      {'<leader>tt', '<cmd>TimerlyToggle<cr>'}
+    },
+  },
+
+  {
+    "atiladefreitas/dooing",
+    keys = {
+      {'<leader>do', '<cmd>Dooing<cr>'}
+    }
+  }
 }
+
+
 
  -- {
   -- 	"nvim-treesitter/nvim-treesitter",

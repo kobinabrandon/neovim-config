@@ -22,6 +22,10 @@ require("lazy").setup({
     import = "nvchad.plugins",
   },
 
+  {
+    { "nvzone/timerly", dependencies = {"nvzone/volt"} }
+  },
+
   { import = "plugins" },
 }, lazy_config)
 
@@ -349,4 +353,21 @@ neogit.setup {
     },
   },
 }
+
+
+require('lspconfig').basedpyright.setup {
+  init_options = {
+    settings = {
+      -- Any extra CLI arguments for `ruff` go here.
+      args = {},
+    }
+  }
+}
+
+
+require("dooing").setup({})
+
+
+
+
 
