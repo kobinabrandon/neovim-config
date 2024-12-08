@@ -1,6 +1,7 @@
 vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46/"
 vim.g.mapleader = " "
 
+
 -- bootstrap lazy and all plugins
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 
@@ -12,6 +13,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local lazy_config = require "configs.lazy"
+
 
 -- load plugins
 require("lazy").setup({
@@ -365,9 +367,14 @@ require('lspconfig').basedpyright.setup {
 }
 
 
+require('lspconfig').gopls.setup {
+  init_options = {
+    settings = {
+      -- Any extra CLI arguments for `ruff` go here.
+      args = {},
+    }
+  }
+}
+
 require("dooing").setup({})
-
-
-
-
 

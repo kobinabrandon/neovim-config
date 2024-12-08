@@ -56,7 +56,9 @@ return {
     keys = {
       {'<leader>do', '<cmd>Dooing<cr>'}
     }
-  }
+  },
+
+  {"folke/tokyonight.nvim"}
 }
 
 
