@@ -29,6 +29,7 @@ require("lazy").setup({
   },
 
   { import = "plugins" },
+  { "CRAG666/code_runner.nvim", config = true },
 }, lazy_config)
 
 -- load theme
@@ -367,14 +368,25 @@ require('lspconfig').basedpyright.setup {
 }
 
 
-require('lspconfig').gopls.setup {
-  init_options = {
-    settings = {
-      -- Any extra CLI arguments for `ruff` go here.
-      args = {},
-    }
-  }
-}
+require('lspconfig').gopls.setup {}
 
 require("dooing").setup({})
 
+
+require('neogen').setup {
+    enabled = true,
+    languages = {
+        lua = {
+            template = {
+                annotation_convention = "emmylua"
+            }
+        },
+
+        python = {
+            template = {
+                  annotation_convention = "google_docstrings"
+            }
+        },
+
+    }
+}

@@ -21,26 +21,32 @@ return {
       -- Keymap to open VenvSelector to pick a venv.
       { '<leader>vs', '<cmd>VenvSelect<cr>' },
       -- Keymap to retrieve the venv from a cache (the one previously used for the same project directory).
-      { '<leader>vc', '<cmd>venv_cache<cr>' },
+      -- { '<leader>vc', '<cmd>VenvCache<cr>' },
     }
   },
 
   {
     "NeogitOrg/neogit",
-    dependencies = {
-      "nvim-lua/plenary.nvim",         -- required
-      "sindrets/diffview.nvim",        -- optional - Diff integration
+    dependencies = {"nvim-lua/plenary.nvim", "sindrets/diffview.nvim", "nvim-telescope/telescope.nvim"},
+    config = true,
+    keys = {
+      { '<leader>vc', '<cmd>Neogit<cr>'},
+    }
 
-      -- Only one of these is needed.
-      "nvim-telescope/telescope.nvim", -- optional
-      "ibhagwan/fzf-lua",              -- optional
-      "echasnovski/mini.pick",         -- optional
-    },
-    config = true
   },
 
   {
-    "kkoomen/vim-doge",
+    'ray-x/aurora',
+    init = function()
+      vim.g.aurora_italic = 1
+      vim.g.aurora_transparent = 1
+      vim.g.aurora_bold = 1
+    end,
+    config = function()
+        vim.cmd.colorscheme "aurora"
+        -- override defaults
+        vim.api.nvim_set_hl(0, '@number', {fg='#e933e3'})
+    end
   },
 
   {
@@ -58,7 +64,19 @@ return {
     }
   },
 
-  {"folke/tokyonight.nvim"}
+  {"folke/tokyonight.nvim"},
+
+  {
+    "danymat/neogen",
+    opts={ noremap = true, silent = true},
+    keys = {
+      {'<leader>dc', "<cmd>:lua require('neogen').generate()<CR>"}
+    },
+    config = true,
+    -- Uncomment next line if you want to follow only stable versions
+    -- version = "*" 
+  }
+
 }
 
 
