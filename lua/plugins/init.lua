@@ -26,16 +26,6 @@ return {
   },
 
   {
-    "NeogitOrg/neogit",
-    dependencies = {"nvim-lua/plenary.nvim", "sindrets/diffview.nvim", "nvim-telescope/telescope.nvim"},
-    config = true,
-    keys = {
-      { '<leader>vc', '<cmd>Neogit<cr>'},
-    }
-
-  },
-
-  {
     'ray-x/aurora',
     init = function()
       vim.g.aurora_italic = 1
@@ -64,8 +54,6 @@ return {
     }
   },
 
-  {"folke/tokyonight.nvim"},
-
   {
     "danymat/neogen",
     opts={ noremap = true, silent = true},
@@ -75,8 +63,28 @@ return {
     config = true,
     -- Uncomment next line if you want to follow only stable versions
     -- version = "*" 
-  }
+  },
 
+  {
+    "kdheepak/lazygit.nvim",
+    lazy = true,
+    cmd = {
+        "LazyGit",
+        "LazyGitConfig",
+        "LazyGitCurrentFile",
+        "LazyGitFilter",
+        "LazyGitFilterCurrentFile",
+    },
+    -- optional for floating window border decoration
+    dependencies = {
+        "nvim-lua/plenary.nvim",
+    },
+    -- setting the keybinding for LazyGit with 'keys' is recommended in
+    -- order to load the plugin when the command is run for the first time
+    keys = {
+        { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" }
+    },
+  },
 }
 
 
