@@ -29,7 +29,6 @@ require("lazy").setup({
   },
 
   { import = "plugins" },
-  { "CRAG666/code_runner.nvim", config = true },
 }, lazy_config)
 
 -- load theme
