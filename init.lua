@@ -76,4 +76,22 @@ require('neogen').setup {
 }
 
 
+require('git-conflict').setup({
+  default_mappings = true,  -- Enable default mappings
+  default_commands = true,  -- Enable default commands
+  disable_diagnostics = false,  -- Disable diagnostics if you prefer
+  highlights = {  -- Customize highlight groups
+    incoming = 'DiffAdd',
+    current = 'DiffText',
+  },
+})
+
+
+vim.keymap.set('n', '<leader>gcl', '<cmd>GitConflictList<cr>', { desc = 'Choose Ours' })
+vim.keymap.set('n', '<leader>gco', '<cmd>GitConflictChooseOurs<cr>', { desc = 'Choose Ours' })
+vim.keymap.set('n', '<leader>gct', '<cmd>GitConflictChooseTheirs<cr>', { desc = 'Choose Theirs' })
+vim.keymap.set('n', '<leader>gcb', '<cmd>GitConflictChooseBoth<cr>', { desc = 'Choose Both' })
+vim.keymap.set('n', '<leader>gcn', '<cmd>GitConflictNextConflict<cr>', { desc = 'Next Conflict' })
+vim.keymap.set('n', '<leader>gcp', '<cmd>GitConflictPrevConflict<cr>', { desc = 'Previous Conflict' })
+
 vim.cmd.colorscheme "aurora"
